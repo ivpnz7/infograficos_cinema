@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cota de Tela — Cinema Brasileiro 2015–2025</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fff; color: #1a1a1a; padding: 2rem; max-width: 720px; margin: 0 auto; }
+.section-label { font-size: 11px; font-weight: 500; color: #888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+.gravata { font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 1rem; }
+.card { background: #fff; border: 0.5px solid #e0e0e0; border-radius: 12px; padding: 1.25rem; }
+.legend-row { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 1rem; font-size: 12px; color: #555; }
+.legend-item { display: flex; align-items: center; gap: 6px; }
+.legend-line { width: 18px; height: 3px; border-radius: 2px; display: inline-block; }
+.note { font-size: 11px; color: #aaa; margin-top: 1rem; line-height: 1.6; }
+</style>
+</head>
+<body>
+<p class="section-label">Cinema brasileiro nas salas — participação no público total (2015–2025)</p>
+<p class="gravata">A presença do cinema nacional nas telas oscilou de forma acentuada na última década. Com a suspensão da cota de tela e os efeitos da pandemia, a participação dos filmes brasileiros chegou a 1,7% em 2021. A retomada gradual, impulsionada pelo Decreto nº 12.323/2024, elevou o índice para 10,1% em 2024 e para 11,2% nos primeiros oito meses de 2025.</p>
+<div class="card">
+  <div class="legend-row">
+    <div class="legend-item"><div class="legend-line" style="background:#1D9E75"></div><span>Com cota de tela</span></div>
+    <div class="legend-item"><div class="legend-line" style="height:0; border-top:3px dashed #D85A30;"></div><span>Sem cota de tela</span></div>
+    <div class="legend-item"><div class="legend-line" style="background:#378ADD"></div><span>Nova cota (Decreto 12.323/2024)</span></div>
+  </div>
+  <div style="position:relative; width:100%; height:280px;">
+    <canvas id="cotaChart" role="img" aria-label="Gráfico de linha com participação do cinema brasileiro no público total de 2015 a 2025.">Com cota: 13% (2015), 16,5% (2016), 9,6% (2017), 14,8% (2018), 13,5% (2019). Sem cota: 21,7% (2020), 1,7% (2021), 4,2% (2022), 3,2% (2023). Nova cota: 10,1% (2024), 11,2% parcial (2025).</canvas>
+  </div>
+  <p class="note">Fonte: SADIS (2014–2020) e SCB (a partir de 2021) · Ancine, Informe Anual do Mercado Cinematográfico 2024 · Dado de 2025 parcial (janeiro–agosto) · Ancine/CenárioMT, set. 2025</p>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const labels = ['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025*'];
+const comCota  = [13.0,16.5,9.6,14.8,13.5,null,null,null,null,null,null];
+const semCota  = [null,null,null,null,null,21.7,1.7,4.2,3.2,null,null];
+const novaCota = [null,null,null,null,null,null,null,null,null,10.1,11.2];
+new Chart(document.getElementById('cotaChart'),{type:'line',data:{labels,datasets:[{label:'Com cota',data:comCota,borderColor:'#1D9E75',backgroundColor:'rgba(29,158,117,0.08)',borderWidth:2.5,pointRadius:5,pointBackgroundColor:'#1D9E75',pointBorderColor:'#fff',pointBorderWidth:1.5,tension:0.3,fill:false,spanGaps:false},{label:'Sem cota',data:semCota,borderColor:'#D85A30',backgroundColor:'rgba(216,90,48,0.08)',borderWidth:2.5,pointRadius:5,pointBackgroundColor:'#D85A30',pointBorderColor:'#fff',pointBorderWidth:1.5,borderDash:[5,4],tension:0.3,fill:false,spanGaps:false},{label:'Nova cota',data:novaCota,borderColor:'#378ADD',backgroundColor:'rgba(55,138,221,0.08)',borderWidth:2.5,pointRadius:5,pointBackgroundColor:'#378ADD',pointBorderColor:'#fff',pointBorderWidth:1.5,tension:0.3,fill:false,spanGaps:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.y!==null?ctx.dataset.label+': '+ctx.parsed.y.toFixed(1)+'%':''}}},scales:{x:{ticks:{font:{size:11},color:'#666',autoSkip:false,maxRotation:0},grid:{display:false}},y:{min:0,max:25,ticks:{font:{size:11},color:'#666',callback:v=>v+'%'},grid:{color:'rgba(0,0,0,0.07)'}}}},plugins:[{afterDatasetsDraw(chart){const ctx=chart.ctx;const sets=[{meta:chart.getDatasetMeta(0),data:comCota,color:'#0F6E56'},{meta:chart.getDatasetMeta(1),data:semCota,color:'#993C1D'},{meta:chart.getDatasetMeta(2),data:novaCota,color:'#185FA5'}];sets.forEach(({meta,data,color})=>{meta.data.forEach((point,i)=>{const val=data[i];if(val===null)return;const isLow=val<5;const isParcial=i===10;ctx.save();ctx.fillStyle=color;ctx.font='500 11px sans-serif';ctx.textAlign='center';ctx.textBaseline=isLow?'top':'bottom';ctx.fillText(isParcial?val.toFixed(1)+'%*':val.toFixed(1)+'%',point.x,isLow?point.y+8:point.y-8);ctx.restore();});});}}]});
+</script>
+</body>
+</html>

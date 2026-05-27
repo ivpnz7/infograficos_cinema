@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cinema em Curitiba — Infográfico completo</title>
+<style>
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fff; color: #1a1a1a; padding: 2rem; max-width: 720px; margin: 0 auto; }
+.section-label { font-size: 11px; font-weight: 500; color: #888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+.gravata { font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 1.25rem; }
+.divider { border: none; border-top: 0.5px solid #e0e0e0; margin: 1.75rem 0; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.cinema-card { border-radius: 12px; border: 0.5px solid #e0e0e0; overflow: hidden; }
+.cinema-header { padding: 0.875rem 1rem; }
+.cinema-header.pub { background: #E1F5EE; }
+.cinema-header.com { background: #FAECE7; }
+.cinema-name { font-size: 14px; font-weight: 500; }
+.cinema-name.pub { color: #085041; }
+.cinema-name.com { color: #712B13; }
+.cinema-sub { font-size: 11px; margin-top: 2px; }
+.cinema-sub.pub { color: #0F6E56; }
+.cinema-sub.com { color: #993C1D; }
+.cinema-body { padding: 0.875rem 1rem; background: #fff; display: flex; flex-direction: column; gap: 10px; }
+.row { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.row-label { font-size: 12px; color: #555; }
+.row-val { font-size: 13px; font-weight: 500; text-align: right; }
+.row-val.pub { color: #085041; }
+.row-val.com { color: #712B13; }
+.row-val.muted { color: #bbb; font-style: italic; font-weight: 400; font-size: 12px; }
+.sep { border: none; border-top: 0.5px solid #e0e0e0; }
+.total-row { display: flex; justify-content: space-between; align-items: center; padding-top: 4px; }
+.total-label { font-size: 12px; font-weight: 500; color: #666; }
+.total-val { font-size: 16px; font-weight: 500; }
+.total-val.pub { color: #085041; }
+.total-val.com { color: #712B13; }
+.diff-box { background: #f2f2f0; border-radius: 8px; padding: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.badge-green { background: #E1F5EE; color: #085041; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 99px; display: inline-block; }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.stat-card { background: #f5f5f3; border-radius: 8px; padding: 0.875rem 1rem; }
+.stat-label { font-size: 11px; color: #888; margin-bottom: 4px; line-height: 1.4; }
+.stat-val { font-size: 20px; font-weight: 500; color: #1a1a1a; }
+.stat-sub { font-size: 11px; color: #aaa; margin-top: 2px; }
+
+.note { font-size: 11px; color: #aaa; margin-top: 1rem; line-height: 1.6; }
+@media (max-width: 480px) { body { padding: 1rem; } .cols { grid-template-columns: 1fr; } }
+
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fff; color: #1a1a1a; padding: 2rem; max-width: 720px; margin: 0 auto; }
+.title { font-size: 13px; font-weight: 500; color: #1a1a1a; margin-bottom: 2px; }
+.subtitle { font-size: 11px; color: #aaa; margin-bottom: 1.25rem; }
+.series-label { font-size: 12px; font-weight: 500; color: #555; margin-bottom: 6px; margin-top: 1rem; }
+.note { font-size: 11px; color: #aaa; margin-top: 1rem; line-height: 1.6; }
+@media (max-width: 480px) { body { padding: 1rem; } }
+
+.divider { border: none; border-top: 0.5px solid #e0e0e0; margin: 2rem 0; }
+</style>
+</head>
+<body>
+<p class="section-label">O custo de ir ao cinema em Curitiba</p>
+<p class="gravata">Assistir a um filme no cinema envolve mais do que o ingresso. Transporte e alimentação compõem o custo real da experiência. A diferença entre um cinema público e uma sala comercial vai além do valor cobrado na bilheteria e revela como o acesso à cultura está distribuído na cidade. Os cinemas foram escolhidos pela proximidade geográfica entre si.</p>
+
+<div class="cols">
+  <div class="cinema-card">
+    <div class="cinema-header pub"><div class="cinema-name pub">Cine Passeio</div><div class="cinema-sub pub">Cinema público · Fundação Cultural de Curitiba</div></div>
+    <div class="cinema-body">
+      <div class="row"><span class="row-label">Ingresso inteira</span><span class="row-val pub">R$ 18,64</span></div>
+      <div class="row"><span class="row-label">Ingresso meia</span><span class="row-val pub">R$ 9,60</span></div>
+      <div class="row"><span class="row-label">Ônibus (ida e volta)</span><span class="row-val pub">R$ 12,00</span></div>
+      <div class="row"><span class="row-label">Pipoca média</span><span class="row-val pub">R$ 23,90</span></div>
+      <div class="sep"></div>
+      <div class="total-row"><span class="total-label">Total (inteira + ônibus + pipoca)</span><span class="total-val pub">R$ 54,54</span></div>
+    </div>
+  </div>
+  <div class="cinema-card">
+    <div class="cinema-header com"><div class="cinema-name com">Cinemark Mueller</div><div class="cinema-sub com">Cinema comercial · Shopping</div></div>
+    <div class="cinema-body">
+      <div class="row"><span class="row-label">Ingresso inteira</span><span class="row-val com">R$ 39,61</span></div>
+      <div class="row"><span class="row-label">Ingresso meia</span><span class="row-val com">R$ 20,40</span></div>
+      <div class="row"><span class="row-label">Ônibus (ida e volta)</span><span class="row-val com">R$ 12,00</span></div>
+      <div class="row"><span class="row-label">Pipoca média</span><span class="row-val muted" style="color:#bbb;font-style:italic;font-size:12px;">a confirmar</span></div>
+      <div class="sep"></div>
+      <div class="total-row"><span class="total-label">Total (inteira + ônibus)</span><span class="total-val com">R$ 51,61</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="diff-box">
+  <span style="font-size:13px;color:#555;">Diferença no ingresso inteiro</span>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+    <span style="font-size:18px;font-weight:500;color:#0F6E56;">R$ 20,97 a menos no Cine Passeio</span>
+    <span class="badge-green">53% mais barato</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<p class="section-label">O cinema em números — Brasil 2024/2025</p>
+<p class="gravata">Os dados da Ancine mostram uma retomada gradual do setor. O ingresso médio nacional em 2024 ficou abaixo do preço cobrado pelo Cinemark em Curitiba, evidenciando que o circuito comercial cobra acima da média do país.</p>
+
+<div class="stat-grid">
+  <div class="stat-card"><div class="stat-label">Ingressos vendidos em 2024</div><div class="stat-val">125 mi</div><div class="stat-sub">Alta de 9,8% em relação a 2023</div></div>
+  <div class="stat-card"><div class="stat-label">Ingresso médio nacional (2024)</div><div class="stat-val">R$ 19,88</div><div class="stat-sub">Ancine · Informe 2024</div></div>
+  <div class="stat-card"><div class="stat-label">Cinema brasileiro no público</div><div class="stat-val">10,1%</div><div class="stat-sub">2024 · ante 3,2% em 2023</div></div>
+  <div class="stat-card"><div class="stat-label">Cinema brasileiro parcial 2025</div><div class="stat-val">11,2%</div><div class="stat-sub">Jan–ago 2025 · dado preliminar</div></div>
+</div>
+
+<p class="note">Fontes: Ancine · Informe Anual do Mercado Cinematográfico 2024 · SCB/SADIS · Prefeitura de Curitiba (tarifa ônibus 2026) · Preços coletados em maio de 2026. </p>
+<hr class="divider">
+<p class="title">Ingresso per capita, público e renda dos longas-metragens exibidos em salas de cinema (em milhões) — 2015 a 2025</p>
+<p class="subtitle">Mercado Cinematográfico · Ancine / Secretaria de Regulação · SCB</p>
+
+<p class="series-label">Ingresso per capita</p>
+<div style="position:relative; width:100%; height:100px;">
+  <canvas id="chart1" role="img" aria-label="Linha de ingresso per capita de 2015 a 2025: 0,85 / 0,89 / 0,87 / 0,78 / 0,85 / 0,19 / 0,25 / 0,47 / 0,56 / 0,59 / 0,51*"></canvas>
+</div>
+
+<p class="series-label">Público (milhões)</p>
+<div style="position:relative; width:100%; height:100px;">
+  <canvas id="chart2" role="img" aria-label="Linha de público em milhões de 2015 a 2025: 173 / 184 / 181 / 163 / 178 / 39 / 52 / 95 / 114 / 125 / 109,6*"></canvas>
+</div>
+
+<p class="series-label">Renda nominal em R$ (milhões)</p>
+<div style="position:relative; width:100%; height:160px;">
+  <canvas id="chart3" role="img" aria-label="Barras de renda nominal em milhões de reais de 2015 a 2025: 2.351,6 / 2.599,3 / 2.717,7 / 2.458,3 / 2.810,0 / 628,7 / 913,7 / 1.819,6 / 2.237,1 / 2.490,3 / 2.230*"></canvas>
+</div>
+
+<p class="note">Fonte: SADIS (2015 a 2020) e SCB (a partir de 2021) · Ancine, Informe Anual do Mercado Cinematográfico 2024 · Dados de 2025: Ancine/PlatôBR (jan–24 dez 2025) · * Ingresso per capita 2025 calculado com base na população estimada pelo IBGE (215 mi). Informe Anual 2025 da Ancine ainda não publicado.</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const labels = ['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025*'];
+const color = '#4a7c8e';
+const colorDark = '#2c5565';
+const colorParcial = '#7aabb8';
+
+const makeLineChart = (canvasId, data, yMax, decimals) => {
+  const bgColors = data.map((_, i) => i === data.length - 1 ? colorParcial : color);
+  new Chart(document.getElementById(canvasId), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        data,
+        borderColor: color,
+        backgroundColor: 'transparent',
+        borderWidth: 1.5,
+        pointRadius: 4,
+        pointBackgroundColor: bgColors,
+        pointBorderColor: '#fff',
+        pointBorderWidth: 1.5,
+        tension: 0,
+        fill: false,
+        segment: { borderDash: ctx => ctx.p1DataIndex === data.length - 1 ? [4,3] : [] }
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ctx.parsed.y.toFixed(decimals) } } },
+      scales: {
+        x: { ticks: { font: { size: 11 }, color: '#888', autoSkip: false, maxRotation: 0 }, grid: { display: false } },
+        y: { display: false, min: 0, max: yMax }
+      }
+    },
+    plugins: [{
+      afterDatasetsDraw(chart) {
+        const ctx = chart.ctx;
+        const meta = chart.getDatasetMeta(0);
+        meta.data.forEach((point, i) => {
+          const val = data[i];
+          const isParcial = i === data.length - 1;
+          ctx.save();
+          ctx.fillStyle = isParcial ? colorParcial : colorDark;
+          ctx.font = isParcial ? 'italic 500 11px sans-serif' : '500 11px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'bottom';
+          const label = decimals === 2 ? val.toFixed(2) : val.toLocaleString('pt-BR');
+          ctx.fillText(isParcial ? label + '*' : label, point.x, point.y - 6);
+          ctx.restore();
+        });
+      }
+    }]
+  });
+};
+
+const percapita = [0.85,0.89,0.87,0.78,0.85,0.19,0.25,0.47,0.56,0.59,0.51];
+const publico   = [173,184,181,163,178,39,52,95,114,125,109.6];
+const renda     = [2351.6,2599.3,2717.7,2458.3,2810.0,628.7,913.7,1819.6,2237.1,2490.3,2230.0];
+
+makeLineChart('chart1', percapita, 1.1, 2);
+makeLineChart('chart2', publico, 220, 0);
+
+new Chart(document.getElementById('chart3'), {
+  type: 'bar',
+  data: {
+    labels,
+    datasets: [{
+      data: renda,
+      backgroundColor: renda.map((v,i) => i === renda.length-1 ? colorParcial : i === renda.length-2 ? colorDark : color),
+      borderWidth: 0,
+      borderRadius: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => 'R$ '+ctx.parsed.y.toLocaleString('pt-BR')+' mi' } } },
+    scales: {
+      x: { ticks: { font: { size: 11 }, color: '#888', autoSkip: false, maxRotation: 0 }, grid: { display: false } },
+      y: { display: false, min: 0, max: 3300 }
+    }
+  },
+  plugins: [{
+    afterDatasetsDraw(chart) {
+      const ctx = chart.ctx;
+      const meta = chart.getDatasetMeta(0);
+      meta.data.forEach((bar, i) => {
+        const val = renda[i];
+        const isParcial = i === renda.length - 1;
+        ctx.save();
+        ctx.fillStyle = isParcial ? colorParcial : colorDark;
+        ctx.font = isParcial ? 'italic 500 11px sans-serif' : '500 11px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+        ctx.fillText(isParcial ? val.toLocaleString('pt-BR')+'*' : val.toLocaleString('pt-BR'), bar.x, bar.y - 4);
+        ctx.restore();
+      });
+    }
+  }]
+});
+</script>
+</body>
+</html>
