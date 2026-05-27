@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onde ver cinema de graça em Curitiba</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fff; color: #1a1a1a; padding: 2rem; max-width: 720px; margin: 0 auto; }
+.section-label { font-size: 11px; font-weight: 500; color: #888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+.gravata { font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 1.25rem; }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 1rem; font-size: 12px; color: #555; }
+.legend-item { display: flex; align-items: center; gap: 6px; }
+.legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+#map { width: 100%; height: 520px; border-radius: 12px; border: 0.5px solid #e0e0e0; }
+.note { font-size: 11px; color: #aaa; margin-top: 1rem; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<p class="section-label">Onde ver cinema de graça em Curitiba</p>
+<p class="gravata">Curitiba tem uma rede de espaços que exibem filmes gratuitamente, de cineclubes universitários a sessões em bares e museus. Clique nos marcadores para saber mais sobre cada um.</p>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#1D9E75"></div> Cinema público</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#378ADD"></div> Cineclube universitário</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#7F77DD"></div> Sesc</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#D85A30"></div> Cineclube independente</div>
+</div>
+
+<div id="map"></div>
+
+<p class="note">Fonte: Fundação Cultural de Curitiba · Sesc Paraná · sites e redes sociais dos cineclubes · Mapa: OpenStreetMap contributors</p>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" onload="initMap()"></script>
+<script>
+function initMap() {
+  var map = L.map('map').setView([-25.448, -49.275], 13);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 19
+  }).addTo(map);
+
+  var cinemas = [
+    {
+      name: 'Terraço do Cine Passeio',
+      lat: -25.4264162, lng: -49.2694634,
+      cor: '#1D9E75', badge: 'Cinema público', badgeBg: '#E1F5EE', badgeColor: '#085041',
+      descricao: 'Uma vez por mês, o Cine Passeio realiza sessões ao ar livre no terraço. Os filmes sempre seguem alguma temática, seja homenageando cineastas ou fazendo referência à época do ano. Os ingressos são gratuitos e distribuídos 1h antes de cada exibição.',
+      endereco: 'Rua Riachuelo, 410'
+    },
+    {
+      name: 'Cinemateca de Curitiba',
+      lat: -25.4247373, lng: -49.2765152,
+      cor: '#1D9E75', badge: 'Cinema público', badgeBg: '#E1F5EE', badgeColor: '#085041',
+      descricao: 'A programação da Cinemateca de Curitiba é sempre gratuita. O espaço realiza diferentes mostras temáticas a cada mês, levando ao público grandes títulos do cinema mundial. Também abriga os cineclubes do Atalante, da Aliança Francesa e São Bernardo — sessões abertas ao público, normalmente seguidas de debate.',
+      endereco: 'Rua Presidente Carlos Cavalcanti, 1174'
+    },
+    {
+      name: 'Cineclube Necrotério',
+      lat: -25.4332, lng: -49.2698,
+      cor: '#D85A30', badge: 'Cineclube independente', badgeBg: '#FAECE7', badgeColor: '#712B13',
+      descricao: 'Parceria entre o Museu Paranaense de Ciências Forenses (MPCF), da Polícia Científica do Paraná e a Companhia Vigor Mortis. As sessões acontecem uma vez por mês no antigo necrotério de Curitiba. A programação sempre envolve o gênero do terror, de clássicos a produções independentes e paranaenses.',
+      endereco: 'Avenida Visconde de Guarapuava, 2652'
+    },
+    {
+      name: 'Cineclube Ratazanas',
+      lat: -25.4496, lng: -49.2801,
+      cor: '#378ADD', badge: 'Cineclube universitário', badgeBg: '#E6F1FB', badgeColor: '#185FA5',
+      descricao: 'Cineclube de curadoria diversa, em atividade desde 2022. Normalmente realiza sessões em salas e auditórios da PUCPR, mas também experimenta locais menos convencionais — como as paredes do bar Janaíno Vegan. A entrada é sempre gratuita.',
+      endereco: 'PUCPR · Rua Imaculada Conceição, 1155 (e pontos alternativos)'
+    },
+    {
+      name: 'CineDeArtes / Cine Magenta',
+      lat: -25.4401, lng: -49.2768,
+      cor: '#378ADD', badge: 'Cineclube universitário', badgeBg: '#E6F1FB', badgeColor: '#185FA5',
+      descricao: 'Cineclube organizado por alunos do curso de Artes Visuais da UFPR. As sessões são realizadas mensalmente no Departamento de Artes da UFPR. Os filmes exibidos são de temáticas variadas, normalmente lançados nos anos 1980 e 1990.',
+      endereco: 'Rua Cel. Dulcídio, 638'
+    },
+    {
+      name: 'Cine FAP',
+      lat: -25.4291, lng: -49.2756,
+      cor: '#378ADD', badge: 'Cineclube universitário', badgeBg: '#E6F1FB', badgeColor: '#185FA5',
+      descricao: 'Projeto de extensão semanal da Faculdade de Artes do Paraná (FAP / Unespar), organizado por estudantes de Cinema e Audiovisual. A cada mês letivo, o cineclube apresenta um novo ciclo de exibições com diferentes temas fílmicos.',
+      endereco: 'Rua Saldanha Marinho, 131'
+    },
+    {
+      name: 'Sesc Paço da Liberdade',
+      lat: -25.4297, lng: -49.2689,
+      cor: '#7F77DD', badge: 'Sesc', badgeBg: '#EEEDFE', badgeColor: '#534AB7',
+      descricao: 'O Cineclube do Paço acontece às terças-feiras, às 19h, na sala Cine Pensamento. O Sesc Centro abriga o Cine José Loureiro, com exibições pontuais e oficinas de audiovisual. Ambas as unidades realizam sessões itinerantes ao ar livre em diferentes épocas do ano.',
+      endereco: 'Sesc Centro: Rua José Loureiro, 578 · Sesc Paço da Liberdade: Praça Generoso Marques, 189'
+    }
+  ];
+
+  cinemas.forEach(function(c) {
+    var icon = L.divIcon({
+      className: '',
+      html: '<div style="width:16px;height:16px;background:' + c.cor + ';border:2.5px solid #fff;border-radius:50%;box-shadow:0 1px 5px rgba(0,0,0,0.35);"></div>',
+      iconSize: [16, 16],
+      iconAnchor: [8, 8],
+      popupAnchor: [0, -12]
+    });
+
+    var popup = '<div style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;min-width:200px;max-width:240px;">'
+      + '<div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:4px;line-height:1.3;">' + c.name + '</div>'
+      + '<div style="margin-bottom:8px;"><span style="font-size:11px;font-weight:500;padding:2px 8px;border-radius:99px;background:' + c.badgeBg + ';color:' + c.badgeColor + ';">' + c.badge + '</span></div>'
+      + '<div style="font-size:12px;color:#444;line-height:1.6;margin-bottom:8px;">' + c.descricao + '</div>'
+      + '<div style="font-size:11px;color:#888;">&#128205; ' + c.endereco + '</div>'
+      + '</div>';
+
+    L.marker([c.lat, c.lng], { icon: icon }).addTo(map).bindPopup(popup, { maxWidth: 260 });
+  });
+}
+</script>
+</body>
+</html>
